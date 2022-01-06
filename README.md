@@ -28,11 +28,11 @@
 | ------------------ | -----------| --------------------------------|
 | name               | string     | null: false                     |
 | description        | text       | null: false                     |
-| category           | integer    | null: false                     |
-| condition          | integer    | null: false                     |
-| delivery_charge    | integer    | null: false                     |
-| prefectures        | integer    | null: false                     |
-| transport_days     | integer    | null: false                     |
+| category_id        | integer    | null: false                     |
+| condition_id       | integer    | null: false                     |
+| delivery_charge_id | integer    | null: false                     |
+| prefecture_id      | integer    | null: false                     |
+| transport_day_id   | integer    | null: false                     |
 | price              | integer    | null: false                     |
 | user               | references | null: false, foreign_key: true  |
 
@@ -62,7 +62,7 @@
 | Column             | Type       | Options                         |
 | ------------------ | -----------| --------------------------------|
 | post_code          | string     | null: false                     |
-| prefectures        | integer    | null: false                     |
+| prefecture_id      | integer    | null: false                     |
 | municipalities     | string     | null: false                     |
 | address            | string     | null: false                     |
 | building_name      | string     |                                 |
