@@ -28,13 +28,12 @@
 | ------------------ | -----------| --------------------------------|
 | name               | string     | null: false                     |
 | description        | text       | null: false                     |
-| category           | string     | null: false                     |
-| condition          | string     | null: false                     |
+| category           | integer    | null: false                     |
+| condition          | integer    | null: false                     |
 | delivery_charge    | integer    | null: false                     |
-| ship_from          | string     | null: false                     |
+| prefectures        | integer    | null: false                     |
 | transport_days     | integer    | null: false                     |
 | price              | integer    | null: false                     |
-| seller_name        | string     | null: false                     |
 | user               | references | null: false, foreign_key: true  |
 
 ### Association
@@ -53,7 +52,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
 - has_one :shipping
 
 
