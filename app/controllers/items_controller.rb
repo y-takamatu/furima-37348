@@ -3,7 +3,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    if user_signed_in?
+      @item = Item.new
+      render :new
+    else 
+      redirect_to new_user_session_path
+    end
   end
 
   def create
