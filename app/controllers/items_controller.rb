@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @items = Item.order(created_at: :desc)
   end
 
   def new
     @item = Item.new
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def create
