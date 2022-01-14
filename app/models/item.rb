@@ -5,7 +5,6 @@ class Item < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :prefecture
   belongs_to :transport_day
-  belongs_to :user
   has_one_attached :image
   has_one :order
   belongs_to :user
@@ -20,8 +19,7 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true, message: 'is invalid. Input half-width characters' }
   validates :price,
             numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
-  # validates :price, presence: true
-
+ 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
     validates :condition_id
