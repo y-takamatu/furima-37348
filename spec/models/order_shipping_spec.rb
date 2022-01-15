@@ -81,7 +81,7 @@ RSpec.describe OrderShipping, type: :model do
         expect(@order_shipping.errors.full_messages).to include "Token can't be blank"
       end
 
-      it 'use_idが空だと購入できない' do
+      it 'user_idが空だと購入できない' do
         @order_shipping.user_id = ''
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include "User can't be blank"
