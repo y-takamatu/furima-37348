@@ -16,11 +16,11 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  validates :price, numericality: { only_integer: true, message: 'is invalid. Input half-width characters' }
+  validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください' }
   validates :price,
-            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
+            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300〜9,999,999の間で入力してください' }
  
-  with_options numericality: { other_than: 1, message: "can't be blank" } do
+  with_options numericality: { other_than: 1, message: "を入力してください" } do
     validates :category_id
     validates :condition_id
     validates :delivery_charge_id
