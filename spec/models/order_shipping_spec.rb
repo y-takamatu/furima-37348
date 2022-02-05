@@ -23,74 +23,74 @@ RSpec.describe OrderShipping, type: :model do
       it '郵便番号が空だと購入できない' do
         @order_shipping.post_code = ''
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "Post code can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "郵便番号を入力してください"
       end
 
       it '郵便番号は、「3桁ハイフン4桁」の半角文字列以外では購入できない' do
         @order_shipping.post_code = '1234-123'
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include 'Post code is invalid. Include hyphen(-)'
+        expect(@order_shipping.errors.full_messages).to include '郵便番号には(-)を含めて下さい'
       end
 
       it '都道府県が空だと購入できない' do
         @order_shipping.prefecture_id = 1
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "Prefecture can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "都道府県を入力してください"
       end
 
       it '市区町村が空だと購入できない' do
         @order_shipping.municipalities = ''
         @order_shipping.valid?
       
-        expect(@order_shipping.errors.full_messages).to include "Municipalities can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "市区町村を入力してください"
       end
 
       it '番地が空だと購入できない' do
         @order_shipping.address= ''
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "Address can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "番地を入力してください"
       end
 
       it '電話番号が空だと購入できない' do
         @order_shipping.phone_number = ''
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "Phone number can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "電話番号を入力してください"
       end
 
       it '電話番号が、10桁以下では購入できない' do
         @order_shipping.phone_number = '123456789'
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include 'Phone number is too short'
+        expect(@order_shipping.errors.full_messages).to include '電話番号は10桁か11桁です'
       end
 
       it '電話番号が、11桁以上では購入できない' do
         @order_shipping.phone_number = '123456789012'
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include 'Phone number is too short'
+        expect(@order_shipping.errors.full_messages).to include '電話番号は10桁か11桁です'
       end
 
       it '電話番号が、全角では購入できない' do
         @order_shipping.phone_number = '１２３４５６７８９０'
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include 'Phone number is invalid. Input only number'
+        expect(@order_shipping.errors.full_messages).to include '電話番号は数字で入力してください'
       end
 
       it 'tokenが空だと購入できない' do
         @order_shipping.token = ''
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "Token can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "クレジットカード情報を入力してください"
       end
 
       it 'user_idが空だと購入できない' do
         @order_shipping.user_id = ''
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "User can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "Userを入力してください"
       end
 
       it 'item_idが空だと購入できない' do
         @order_shipping.item_id = ''
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include "Item can't be blank"
+        expect(@order_shipping.errors.full_messages).to include "Itemを入力してください"
       end
     end
   end
